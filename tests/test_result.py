@@ -180,3 +180,6 @@ class TestResult(TestCase):
         self.assertEqual(my_func(5), Ok(10))
         self.assertEqual(str(my_func(-1).unwrap_err()), "x must be greater than 0")
         self.assertRaises(Exception, my_func, -6)
+    
+    def test_fail(self):
+        self.fail("should fail")
