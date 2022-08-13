@@ -1,8 +1,7 @@
 from abc import abstractmethod
-from ast import Call
 import collections
 import functools
-from typing import Any, Callable, Generic, Tuple, Type, TypeVar, overload
+from typing import Any, Callable, Generic, Iterable, List, Tuple, Type, TypeVar, overload
 
 
 T = TypeVar("T")

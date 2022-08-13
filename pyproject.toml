@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyrust_alerycserrania"
+version = "0.0.1"
+authors = [
+  { name="Aleryc SERRANIA", email="alerycserrania@protonmail.com" },
+]
+description = "Option and Result classes for Python"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/alerycserraia/pyrust"
+"Bug Tracker" = "https://github.com/alerycserraia/pyrust/issues"

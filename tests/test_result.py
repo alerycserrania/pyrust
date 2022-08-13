@@ -1,7 +1,7 @@
 from argparse import ArgumentError
 from unittest import TestCase
 
-from pyrust import Err, Nothing, Ok, Panic, Some, as_result
+from src.pyrust_alerycserrania import Err, Nothing, Ok, Panic, Some, as_result
 
 
 class TestResult(TestCase):
@@ -153,6 +153,7 @@ class TestResult(TestCase):
     def test_unwrap_err(self):
         self.assertEqual(Err("value").unwrap_err(), "value")
         self.assertRaises(Panic, Ok(5).unwrap_err)
+
 
     def test_as_result(self):
         @as_result

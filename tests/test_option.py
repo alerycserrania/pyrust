@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyrust import Err, Nothing, Ok, Panic, Some, as_option
+from src.pyrust_alerycserrania import Err, Nothing, Ok, Panic, Result, Some, as_option
 
 
 class TestOption(TestCase):
