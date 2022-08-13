@@ -1,4 +1,3 @@
-from argparse import ArgumentError
 from unittest import TestCase
 
 from src.pyrust_alerycserrania import Err, Nothing, Ok, Panic, Some, as_result
@@ -121,19 +120,22 @@ class TestResult(TestCase):
         self.assertEqual(Err("oh no!").map_err(lambda x: len(x)), Err(6))
 
     def test_inspect(self):
+        self.assertEqual(Ok(4).inspect(lambda v: self.assertEqual(v, 4)), Ok(4))
         self.assertEqual(
-            Ok(4).inspect(lambda v: self.assertEqual(v, 4)), Ok(4)
-        )
-        self.assertEqual(
-            Err("oh no!").inspect(lambda _: self.fail("Nothing should not be inspected")), Err("oh no!")
+            Err("oh no!").inspect(
+                lambda _: self.fail("Nothing should not be inspected")
+            ),
+            Err("oh no!"),
         )
 
     def test_inspect_err(self):
         self.assertEqual(
-            Ok(4).inspect_err(lambda _: self.fail("Nothing should not be inspected")), Ok(4)
+            Ok(4).inspect_err(lambda _: self.fail("Nothing should not be inspected")),
+            Ok(4),
         )
         self.assertEqual(
-            Err("oh no!").inspect(lambda v: self.assertEqual(v, "oh no!")), Err("oh no!")
+            Err("oh no!").inspect(lambda v: self.assertEqual(v, "oh no!")),
+            Err("oh no!"),
         )
 
     def test_expect(self):
@@ -153,7 +155,6 @@ class TestResult(TestCase):
     def test_unwrap_err(self):
         self.assertEqual(Err("value").unwrap_err(), "value")
         self.assertRaises(Panic, Ok(5).unwrap_err)
-
 
     def test_as_result(self):
         @as_result
@@ -179,4 +180,3 @@ class TestResult(TestCase):
         self.assertEqual(my_func(5), Ok(10))
         self.assertEqual(str(my_func(-1).unwrap_err()), "x must be greater than 0")
         self.assertRaises(Exception, my_func, -6)
-            

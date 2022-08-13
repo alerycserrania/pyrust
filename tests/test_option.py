@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.pyrust_alerycserrania import Err, Nothing, Ok, Panic, Result, Some, as_option
+from src.pyrust_alerycserrania import Err, Nothing, Ok, Panic, Some, as_option
 
 
 class TestOption(TestCase):
@@ -102,11 +102,10 @@ class TestOption(TestCase):
         self.assertEqual(Nothing().map(lambda x: x.split()), Nothing())
 
     def test_inspect(self):
+        self.assertEqual(Some(4).inspect(lambda v: self.assertEqual(v, 4)), Some(4))
         self.assertEqual(
-            Some(4).inspect(lambda v: self.assertEqual(v, 4)), Some(4)
-        )
-        self.assertEqual(
-            Nothing().inspect(lambda _: self.fail("Nothing should not be inspected")), Nothing()
+            Nothing().inspect(lambda _: self.fail("Nothing should not be inspected")),
+            Nothing(),
         )
 
     def test_map_or(self):

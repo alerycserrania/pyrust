@@ -1,8 +1,7 @@
-from abc import abstractmethod
 import collections
 import functools
+from abc import abstractmethod
 from typing import Any, Callable, Generic, Iterable, List, Tuple, Type, TypeVar, overload
-
 
 T = TypeVar("T")
 U = TypeVar("U")
